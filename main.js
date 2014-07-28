@@ -14,7 +14,6 @@ window.onload=function(){
 };
 
 function display(){
-	//event.stopPropagation();
 	hideFrames();
 	removeClassActive();
 	var p=this.getBoundingClientRect();
@@ -23,7 +22,8 @@ function display(){
 	ptop=p.top;
 	pbottom=p.bottom;
 	var myclass=myposition(pleft,pright,ptop,pbottom);
-	this.classList.add(myclass,"active");
+	this.classList.add(myclass);
+	this.classList.add("active");
 	for(var i=0;i<this.childNodes.length;i++){
 		if(this.childNodes[i].nodeName=='IFRAME'){
 			this.childNodes[i].classList.remove("iframeH");
@@ -31,8 +31,9 @@ function display(){
 	}
 }
 function myposition(pleft,pright,ptop,pbottom){
+	var position;
 	if((width-pleft)>600){
-		return("i-right");
+		return ('i-right');
 	}
 	else{
 		return("i-left");

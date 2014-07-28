@@ -15,16 +15,18 @@ body{
 /*needed styles*/
 .bills{
 	position:relative;
+	display: inline-block;
 }
 .iframeH{
 	display: none;
 }
 .iframe{
 	width:502px;
-	height: 410px;
+	height: 415px;
 	margin:auto;
 	border:1px solid transparent;
 	position:absolute;
+	z-index:1;
 }
 .i-left .iframe{
 	top:-30px;
@@ -32,13 +34,14 @@ body{
 }
 .i-right .iframe{
 	top:-30px;
-	left:90px;
+	//left:90px;
+	right:-521px;
 }
 .i-right.active:before{
 	content:"";
 	display:block;
 	width: 0px;height: 0px;
-	position: absolute;top:-10px;left:74px;
+	position: absolute;top:-10px;/*left:74px;*/right:-24px;
 	border-top:20px solid transparent;
 	border-bottom:20px solid transparent;
 	border-right:20px solid #fff;
@@ -48,7 +51,7 @@ body{
 	content:" ";
 	display:block;
 	width: 0px;height: 0px;
-	position: absolute;top:-10px;left:70px;
+	position: absolute;top:-10px;/*left:71px;*/right:-21px;
 	border-top:20px solid transparent;
 	border-bottom:20px solid transparent;
 	border-right:20px solid #e3e3e3;
