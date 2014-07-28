@@ -71,4 +71,22 @@ document.onclick=function(){
 
 
 /*test code*/
-/*this.className=this.className + "active";*/
+
+
+/*DOMTokenList.prototype.addMany = function(classes) {
+    var array = classes.split(' ');
+    for (var i = 0, length = array.length; i < length; i++) {
+      this.add(array[i]);
+    }
+}
+
+DOMTokenList.prototype.removeMany = function(classes) {
+    var array = classes.split(' ');
+    for (var i = 0, length = array.length; i < length; i++) {
+      this.remove(array[i]);
+    }
+}
+These would then be useable like so:
+
+elem.classList.addMany("first second third");
+elem.classList.removeMany("first third");*/
