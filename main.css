@@ -22,7 +22,7 @@ body{
 }
 .iframe{
 	width:502px;
-	height: 415px;
+	height:700px; /*415px;*/
 	margin:auto;
 	border:1px solid transparent;
 	position:absolute;
@@ -34,7 +34,6 @@ body{
 }
 .i-right .iframe{
 	top:-30px;
-	//left:90px;
 	right:-521px;
 }
 .i-right.active:before{

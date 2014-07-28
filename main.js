@@ -22,11 +22,14 @@ function display(){
 	ptop=p.top;
 	pbottom=p.bottom;
 	var myclass=myposition(pleft,pright,ptop,pbottom);
-	this.classList.add(myclass);
-	this.classList.add("active");
+	//this.classList.add(myclass);
+	addClass(this,myclass);
+	//this.classList.add("active");
+	addClass(this,'active');
 	for(var i=0;i<this.childNodes.length;i++){
 		if(this.childNodes[i].nodeName=='IFRAME'){
-			this.childNodes[i].classList.remove("iframeH");
+			//this.childNodes[i].classList.remove("iframeH");
+			removeClass(this.childNodes[i],'iframeH');
 		}
 	}
 }
@@ -42,51 +45,30 @@ function myposition(pleft,pright,ptop,pbottom){
 function hideFrames(){
 	var frames=document.getElementsByClassName('iframe');
 	for(var i=0;i<frames.length;i++){
-		frames[i].classList.add('iframeH');
+		//frames[i].classList.add('iframeH');
+		addClass(frames[i],'iframeH');
 	}
 }
 function removeClassActive(){
 	var bills=document.getElementsByClassName('bills');
 	for(var i=0;i<bills.length;i++){
-		bills[i].classList.remove("active");
+		//bills[i].classList.remove("active");
+		removeClass(bills[i],'active');
 	}
 }
-/*document.getElementById('bill').onmouseover=display;
 
-function display(event){
-	event.stopPropagation();
-	this.style.position="relative";
-	this.classList.add('active');
-	document.getElementById('iframe').className="iframeS";
-	/*var rect=	this.getBoundingClientRect();
-	console.log(rect.top,rect.bottom,rect.left,rect.right);
+function hasClass(ele,cls) {
+  return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
 }
 
-document.onclick=function(){
-	document.getElementById('iframe').className="iframeH";
-	document.getElementById('bill').classList.remove('active');
-};*/
-
-
-
-
-/*test code*/
-
-
-/*DOMTokenList.prototype.addMany = function(classes) {
-    var array = classes.split(' ');
-    for (var i = 0, length = array.length; i < length; i++) {
-      this.add(array[i]);
-    }
+function addClass(ele,cls) {
+  if (!hasClass(ele,cls)) ele.className += " "+cls;
 }
 
-DOMTokenList.prototype.removeMany = function(classes) {
-    var array = classes.split(' ');
-    for (var i = 0, length = array.length; i < length; i++) {
-      this.remove(array[i]);
-    }
+function removeClass(ele,cls) {
+  if (hasClass(ele,cls)) {
+    var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+    ele.className=ele.className.replace(reg,' ');
+  }
 }
-These would then be useable like so:
 
-elem.classList.addMany("first second third");
-elem.classList.removeMany("first third");*/
