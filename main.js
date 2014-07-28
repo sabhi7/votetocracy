@@ -3,6 +3,7 @@ var height;
 window.onload=function(){
 	width=document.documentElement.clientWidth;
 	height=document.documentElement.clientHeight;
+	console.log(height,width);
 	var n=document.getElementsByClassName('bills');
 	for(var i=0;i<n.length;i++){
 		n[i].onmouseover=display;
@@ -22,18 +23,16 @@ function display(){
 	ptop=p.top;
 	pbottom=p.bottom;
 	var myclass=myposition(pleft,pright,ptop,pbottom);
-	//this.classList.add(myclass);
 	addClass(this,myclass);
-	//this.classList.add("active");
 	addClass(this,'active');
 	for(var i=0;i<this.childNodes.length;i++){
 		if(this.childNodes[i].nodeName=='IFRAME'){
-			//this.childNodes[i].classList.remove("iframeH");
 			removeClass(this.childNodes[i],'iframeH');
 		}
 	}
 }
-function myposition(pleft,pright,ptop,pbottom){
+
+/*function myposition(pleft,pright,ptop,pbottom){
 	var position;
 	if((width-pleft)>600){
 		return ('i-right');
@@ -41,18 +40,18 @@ function myposition(pleft,pright,ptop,pbottom){
 	else{
 		return("i-left");
 	}
-}
+}*/
+
 function hideFrames(){
 	var frames=document.getElementsByClassName('iframe');
 	for(var i=0;i<frames.length;i++){
-		//frames[i].classList.add('iframeH');
 		addClass(frames[i],'iframeH');
 	}
 }
+
 function removeClassActive(){
 	var bills=document.getElementsByClassName('bills');
 	for(var i=0;i<bills.length;i++){
-		//bills[i].classList.remove("active");
 		removeClass(bills[i],'active');
 	}
 }
@@ -72,3 +71,29 @@ function removeClass(ele,cls) {
   }
 }
 
+/*test code*/
+function myposition(pleft,pright,ptop,pbottom){
+	var position;
+	if((width-pright)>600){
+		if(topBottom(ptop,pbottom)){
+			return ('i-right-top');
+		}
+		else{
+			return ('i-right');
+		}	
+	}
+	else if(topBottom(ptop,pbottom)){
+		return ('i-left-top');
+		}
+		else{
+		return("i-left");
+		}
+}
+function topBottom(ptop,pbottom){
+	if((height-pbottom)<400 && ptop>400 ){
+			return true;
+		}
+		else{
+			return false;
+		}	
+}
