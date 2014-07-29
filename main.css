@@ -42,11 +42,17 @@ body{
 .i-bottom .iframe{
 	top: 40px;
 }
-.i-bottom.left .iframe{
+.i-bottom.i-leftxs .iframe{
 	left:-30px;
 }
-.i-bottom.right .iframe{
+.i-bottom.i-rightxs .iframe{
 	right:-30px;
+}
+.i-bottom.i-leftsm .iframe{
+	left:-150px;
+}
+.i-bottom.i-rightsm .iframe{
+	right:-150px;
 }
 .i-right.active:before,.i-right-top.active:before{
 	content:"";
