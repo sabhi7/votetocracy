@@ -32,15 +32,42 @@ function display(){
 	}
 }
 
-/*function myposition(pleft,pright,ptop,pbottom){
+function myposition(pleft,pright,ptop,pbottom){
 	var position;
-	if((width-pleft)>600){
-		return ('i-right');
+	if((width-pright)>510){
+		if(topBottom(ptop,pbottom)){
+			return ("i-right-top");
+		}
+		else{
+			return ("i-right");
+		}	
+	}
+	else if(pleft>510){
+		if(topBottom(ptop,pbottom)){
+		return ("i-left-top");
+		}
+		else{
+		return("i-left");
+		}
 	}
 	else{
-		return("i-left");
-	}
-}*/
+		if((width/2)>pleft){
+			return "i-bottom left";
+		}
+		else{
+			return ("i-bottom right");
+		}
+	} 
+}
+
+function topBottom(ptop,pbottom){
+	if((height-pbottom)<400 && ptop>400 ){
+			return true;
+		}
+		else{
+			return false;
+		}	
+}
 
 function hideFrames(){
 	var frames=document.getElementsByClassName('iframe');
@@ -72,28 +99,4 @@ function removeClass(ele,cls) {
 }
 
 /*test code*/
-function myposition(pleft,pright,ptop,pbottom){
-	var position;
-	if((width-pright)>600){
-		if(topBottom(ptop,pbottom)){
-			return ('i-right-top');
-		}
-		else{
-			return ('i-right');
-		}	
-	}
-	else if(topBottom(ptop,pbottom)){
-		return ('i-left-top');
-		}
-		else{
-		return("i-left");
-		}
-}
-function topBottom(ptop,pbottom){
-	if((height-pbottom)<400 && ptop>400 ){
-			return true;
-		}
-		else{
-			return false;
-		}	
-}
+
