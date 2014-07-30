@@ -2,14 +2,14 @@ var width;
 var height;
 window.onload=init;
 window.onresize=function () { 
-	a=document.getElementsByClassName('active')[0];
-	if(a !='undefined'){
+	a=document.getElementsByClassName('vtc-active')[0];
+	if(typeof a !='undefined'){
 		display.apply(a); 
 	}
 }
 
 function init(){
-	var n=document.getElementsByClassName('bills');
+	var n=document.getElementsByClassName('vtc-bills');
 	for(var i=0;i<n.length;i++){
 		n[i].onmouseover=display;
 		n[i].onclick=display;
@@ -21,7 +21,10 @@ function init(){
 };
 
 function display(event){
-	//event.stopPropagation();
+	if(typeof event !='undefined'){
+		event.stopPropagation();
+	}
+	console.log(event);
 	hideFrames();
 	removeClassActive();
 	var p=this.getBoundingClientRect();
@@ -30,12 +33,13 @@ function display(event){
 	ptop=p.top;
 	pbottom=p.bottom;
 	var myclass=myposition(pleft,pright,ptop,pbottom);
-	removeClass(this,'i\\-.*');
+	//removeClass(this,'i\\-.*');
+	removeClass(this,'vtc\\-i\\-.*');
 	addClass(this,myclass);
-	addClass(this,'active');
+	addClass(this,'vtc-active');
 	for(var i=0;i<this.childNodes.length;i++){
 		if(this.childNodes[i].nodeName=='IFRAME'){
-			removeClass(this.childNodes[i],'iframeH');
+			removeClass(this.childNodes[i],'vtc-iframeH');
 		}
 	}
 }
@@ -45,35 +49,35 @@ function myposition(pleft,pright,ptop,pbottom){
 	height=document.documentElement.clientHeight;
 	if((width-pright)>510){
 		if(topBottom(ptop,pbottom)){
-			return ("i-right-top");
+			return ("vtc-i-right-top");
 		}
 		else{
-			return ("i-right");
+			return ("vtc-i-right");
 		}	
 	}
 	else if(pleft>510){
 		if(topBottom(ptop,pbottom)){
-		return ("i-left-top");
+		return ("vtc-i-left-top");
 		}
 		else{
-		return("i-left");
+		return("vtc-i-left");
 		}
 	}
 	else{
 		if(pleft<(width/2)){
 			if(pleft<(width/4)){
-				return "i-bottom i-leftxs";
+				return "vtc-i-bottom vtc-i-leftxs";
 			}
 			else{
-				return "i-bottom i-leftsm";
+				return "vtc-i-bottom vtc-i-leftsm";
 			} 
 		}
 		else{
 			if((width-pright)<(width/4)){
-				return "i-bottom i-rightxs";
+				return "vtc-i-bottom vtc-i-rightxs";
 			}
 			else{
-				return "i-bottom i-rightsm";
+				return "vtc-i-bottom vtc-i-rightsm";
 			}
 		}	 
 	} 
@@ -89,16 +93,16 @@ function topBottom(ptop,pbottom){
 }
 
 function hideFrames(){
-	var frames=document.getElementsByClassName('iframe');
+	var frames=document.getElementsByClassName('vtc-iframe');
 	for(var i=0;i<frames.length;i++){
-		addClass(frames[i],'iframeH');
+		addClass(frames[i],'vtc-iframeH');
 	}
 }
 
 function removeClassActive(){
-	var bills=document.getElementsByClassName('bills');
+	var bills=document.getElementsByClassName('vtc-bills');
 	for(var i=0;i<bills.length;i++){
-		removeClass(bills[i],'active');
+		removeClass(bills[i],'vtc-active');
 	}
 }
 
