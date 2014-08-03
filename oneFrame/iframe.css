@@ -1,0 +1,32 @@
+*{margin: 0px;padding:0px;}
+*,*:before,*:after{-webktit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+body{
+	background-color: #ececec;
+}
+#container{
+	width:960px;padding:10px;
+	margin:20px auto;
+	background-color: #ffffff;
+}
+/*needed styles*/
+.vtc-text-primary{
+  color:#0059b2;
+}
+/*.vtc-bills{
+	position:relative;
+	display: inline-block;
+}*/
+.vtc-iframeH{
+	display: none;
+}
+.vtc-iframe{
+	width:502px;
+	height:415px; /*415px;*/
+	margin:auto;
+	border:1px solid transparent;
+	position:absolute;
+	z-index:1;
+}
+.vtc-i-right{
+
+}
