@@ -401,7 +401,7 @@ button[type="submit"]:hover{
 /*drop Rep*/
 .container{
 	border:1px solid #e3e3e3;
-	margin:20px 0px 0px 20px;
+	//margin:20px 0px 0px 20px;
 	color:#7a7677;
 }
 .col-3,.col-7{

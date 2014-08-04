@@ -62,55 +62,46 @@
     var top=ele.offsetTop;
     var bottom=ele.offsetTop + ele.offsetHeight;
     resetFrame(iframe);
+    /*dispaly on right*/
     if ((width-p.right) > 510) {
-    		/*dispaly on right and towards the top*/
+    	iframe.style.left=right+25 +"px";	
       if (topBottom(p.top,p.bottom)) {
-      	iframe.style.bottom=height-bottom-70 +"px";
-      	iframe.style.left=right+25 +"px";
-      }
-      	/*dispaly  on right */
-      else{
-      	iframe.style.top=top-50 +"px";
-      	iframe.style.left=right+25 +"px";
+      	iframe.style.bottom=height-bottom-70 +"px";/*towards the top*/
+      } else{
+      	iframe.style.top=top-50 +"px";/*towards the bottom*/
       }
       return ("vtc-i-right");
 	  }
+	  /*display on the left*/
     if (p.left > 510) {
-    		/*display on the left and towards top*/
+    	iframe.style.right=width-left+25 +"px";
       if(topBottom(p.top,p.bottom)) {
       	iframe.style.bottom=height-bottom-70 +"px";
-      	iframe.style.right=width-left+25 +"px";
-      }
-      else{
-      	/*displays on left*/
+      } else{
       	iframe.style.top=top-50 +"px";
-      	iframe.style.right=width-left+25 +"px";
       }
       return("vtc-i-left");
  		}
+ 		/*display on the bottom*/
     if (p.left < (width/2)) {
-    		/*display on the bottom towards left*/
+    	iframe.style.top=bottom+25 +"px";	
 	    if (p.left < (width/4)){
-	    	iframe.style.top=bottom+25 +"px";
 	    	iframe.style.left=left-30 +"px";
-	    } 
-	    else{
-	    	iframe.style.top=bottom+25 +"px";
+	    } else{
 	    	iframe.style.left=left-150 +"px";
 	    }
 	    return "vtc-i-bottom"; 
-    }
-    if ((width-p.right) < (width/4)){
-    	iframe.style.top=bottom+25 +"px";
-	    iframe.style.right=width-right-30 +"px";
-     } 
-    else{
-    	iframe.style.top=bottom+25 +"px";
-	    iframe.style.left=left-150 +"px";
-    } 
-    return "vtc-i-bottom";
-  }
-   
+    } else {
+	    iframe.style.top=bottom+25 +"px";
+	    if ((width-p.right) < (width/4)){
+	    	iframe.style.right=width-right-30 +"px";
+   		} else{
+	    	iframe.style.left=left-150 +"px";
+    	} 
+   	 return "vtc-i-bottom";
+ 	 }
+ 	}
+ 	  
   function topBottom(ptop, pbottom) {
     return ((height-pbottom) < 400 && ptop > 400);
   }
