@@ -11,29 +11,88 @@ body{
 /*needed styles*/
 .vtc-text-primary{
   color:#0059b2;
+  background-color:#c6dfff;
+  border-radius: 5px;
+  padding:0px 3px;
+  border:1px solid #0059b2;
+  font-size:.86em;
 }
-/*.vtc-bills{
-	position:relative;
-	display: inline-block;
-}*/
+.vtc-text-primary:hover{
+	background-color: #82cafa;
+}
 .vtc-iframeH{
 	display: none;
 }
 .vtc-iframe{
-	width:502px;
-	height:415px; /*415px;*/
+	width:504px;
+	height:400px; 
 	margin:auto;
-	border:1px solid transparent;
+	border:2px solid #e3e3e3;
 	position:absolute;
-	z-index:1;
+	z-index:1000;
 }
-.vtc-i-right.vtc-active:before,.vtc-i-right-top.vtc-active:before{
+.vtc-active{
+	display: inline-block;
+	position:relative;
+
+}
+.vtc-i-right.vtc-active:before{
 	content:"";
 	display:block;
 	width: 0px;height: 0px;
-	position: absolute;top:-10px;right:-24px;
+	position: absolute;top:-10px;right:-25px;
 	border-top:20px solid transparent;
 	border-bottom:20px solid transparent;
 	border-right:20px solid #fff;
-	z-index: 3;
+	z-index:1003;
+}
+.vtc-i-right.vtc-active:after{
+	content:"";
+	display:block;
+	width: 0px;height: 0px;
+	position: absolute;top:-10px;right:-21px;
+	border-top:20px solid transparent;
+	border-bottom:20px solid transparent;
+	border-right:20px solid #e3e3e3;
+	z-index: 1002;
+}
+.vtc-i-left.vtc-active:before{
+	content:"";
+	display:block;
+	width: 0px;height: 0px;
+	position: absolute;top:-10px;left:-26px;
+	border-top:20px solid transparent;
+	border-bottom:20px solid transparent;
+	border-left:20px solid #ffffff;
+	z-index: 1003;
+}
+.vtc-i-left.vtc-active:after{
+	content:" ";
+	display:block;
+	width: 0px;height: 0px;
+	position: absolute;top:-10px;left:-22px;
+	border-top:20px solid transparent;
+	border-bottom:20px solid transparent;
+	border-left:20px solid #e3e3e3;
+	z-index: 1002;
+}
+.vtc-i-bottom.vtc-active:before{
+	content:"";
+	display:block;
+	width: 0px;height: 0px;
+	position: absolute;top:25px;left:10px;
+	border-left:20px solid transparent;
+	border-right:20px solid transparent;
+	border-bottom:20px solid #fff;
+	z-index: 1003;
+}
+.vtc-i-bottom.vtc-active:after{
+	content:" ";
+	display:block;
+	width: 0px;height: 0px;
+	position: absolute;top:21px;left:10px;
+	border-left:20px solid transparent;
+	border-right:20px solid transparent;
+	border-bottom:20px solid #e3e3e3;
+	z-index: 1002;
 }

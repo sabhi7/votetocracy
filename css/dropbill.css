@@ -105,7 +105,7 @@ h2{
 	padding:15px;
 	position:relative;
 	background-color:#ffffff;
-	border-bottom:2px solid #e3e3e3;
+	/*border-bottom:2px solid #e3e3e3;*/
 }
 #main-footer{
 	min-height: 30px;
