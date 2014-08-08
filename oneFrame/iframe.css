@@ -24,8 +24,8 @@ body{
 	display: none;
 }
 .vtc-iframe{
-	/*width:504px;
-	height:400px;*/ 
+	width:504px;
+	height:400px; 
 	margin:auto;
 	border:2px solid #e3e3e3;
 	position:absolute;

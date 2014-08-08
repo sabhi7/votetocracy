@@ -29,6 +29,7 @@
   });
 
   addEvent('message', window, function(event) {
+    console.log(event.data.iframe_id);
     var id = event.data.iframe_id;
     var iframe = document.getElementById(id);
     iframe.style.height = (event.data.height + 4) + 'px';
@@ -73,13 +74,10 @@
     if (typeof event !== 'undefined') event.stopPropagation();
     hideFrames();
     removeClass(this, 'vtc\\-i\\-.*');
-  	var rel=this.getAttribute('data-vtctarget');
-  	for(var i=0;i<vtciframes.length;i++){
-  		if(vtciframes[i].getAttribute('data-vtcparent') == rel){
-  			addClass(this,myposition(this,vtciframes[i]));
-  			removeClass(vtciframes[i],'vtc-iframeH');
-  		}
-  	}
+    var iframe_id = this.getAttribute('data-vtctarget');
+    var iframe = document.getElementById(iframe_id);
+    addClass(this,myposition(this, iframe));
+    removeClass(iframe, 'vtc-iframeH');
     setActive(this);
   }	
 
